@@ -11,7 +11,7 @@ RUN npm install
 
 
 # 0.1. Run your app as usual
-# CMD ["node", "src/app.js"]
+CMD ["node", "src/app.js"]
 
 # 0.2. When you start with following command, it works, but pm2 is finished as the process 
 # and the container is shut down # https://pm2.keymetrics.io/docs/usage/docker-pm2-nodejs/
@@ -29,7 +29,7 @@ RUN npm install
 # CMD ["pm2-runtime", "ecosystem.config.js", "--env", "production"]
 
 # 4. Run your app in cluster mode. There will be multiple instances of the app
-CMD ["pm2-runtime", "multitasking.config.js"]
+# CMD ["pm2-runtime", "multitasking.config.js"]
 
 # docker build -t app .
 # docker run -p 8080:8080 -d app
