@@ -7,7 +7,10 @@ const app = express()
 app.get('/', (req, res, next) => {
   console.log('You accessed the app #', process.env.COUNTER)
 
-  return res.send(`<h1>Counter: ${process.env.COUNTER}</h1>`)
+  setTimeout(() => {
+    console.log('Sending from', process.env.COUNTER)
+    return res.send(`<h1>Counter: ${process.env.COUNTER}</h1>`)
+  }, 3000)
 })
 
 app.listen(PORT, () => {

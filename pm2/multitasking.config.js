@@ -6,7 +6,7 @@ module.exports = {
   apps: [
     {
       name: "app",
-      script: "app.js",
+      script: "./src/app.js",
       instances: 'max',
       exec_mode: "cluster",
       increment_var: 'COUNTER',

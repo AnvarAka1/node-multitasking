@@ -6,19 +6,21 @@ module.exports = {
   apps: [
     {
       name: "app",
-      script: "app.js",
+      script: "./src/app.js",
       env: {
+        COUNTER: 0,
         NODE_ENV: "development",
         PORT: 8081
       },
       env_production: {
+        COUNTER: 10,
         NODE_ENV: "production",
         PORT: 8082
       }
     },
     {
       name: 'worker',
-      script: 'worker.js'
+      script: './src/worker.js'
     }
   ]
 }

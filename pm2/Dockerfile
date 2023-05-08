@@ -1,9 +1,9 @@
 FROM node:16.19.0-alpine
 
 RUN mkdir /app
-WORKDIR ./app
+WORKDIR /app
 
-COPY * ./
+COPY . .
 
 RUN npm install -g pm2 
 
@@ -11,7 +11,7 @@ RUN npm install
 
 
 # 0.1. Run your app as usual
-CMD ["node", "src/app.js"]
+# CMD ["node", "src/app.js"]
 
 # 0.2. When you start with following command, it works, but pm2 is finished as the process 
 # and the container is shut down # https://pm2.keymetrics.io/docs/usage/docker-pm2-nodejs/
@@ -28,9 +28,14 @@ CMD ["node", "src/app.js"]
 # pm2 gets env_production object
 # CMD ["pm2-runtime", "ecosystem.config.js", "--env", "production"]
 
-# 4. Run your app in cluster mode. There will be multiple instances of the app
-# CMD ["pm2-runtime", "multitasking.config.js"]
+# 4. Run your app in cluster mode. There will be multiple instances of the app. Port is 8080
+CMD ["pm2-runtime", "multitasking.config.js"]
 
 # docker build -t app .
 # docker run -p 8080:8080 -d app
 # docker exec -it *docker-container* sh
+
+# or 
+
+# docker-compose build
+# docker-compose up
